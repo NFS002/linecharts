@@ -1,0 +1,42 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      var dataArray = [['90+',334],
+                 ['80-89',425],
+                 ['70-79',569],
+                 ['60-69',738],
+                 ['50-59',855],
+                 ['40-49',898],
+                 ['30-39',956],
+                 ['20-29',1016],
+                 ['10-19',1014],
+                 ['0-9',840],
+                 ['Unborn',650],
+                 ['Age','Total Wealth']]
+
+       dataArray = dataArray.reverse();
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(dataArray);
+
+        var options = {
+          hAxis: {title: 'Age',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0},
+          legend: {position:'bottom'},
+          colors: ['rgb(56,86,151)'],
+          chartArea: {'width': '85%', 'height': '80%'},
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_body'));
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body id="chart_body">
+</body>
+</html>
